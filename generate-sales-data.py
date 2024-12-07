@@ -3,8 +3,12 @@
 import pandas as pd
 from datetime import datetime, timedelta
 from random import randint
+import configparser
 
-COMPANIES = ['TSLA', 'PFE', 'F', 'INTC', 'BAC']
+config = configparser.ConfigParser()
+config.read('config.ini')
+
+COMPANIES = eval(config['Companies']['COMPANIES'])
 
 today = datetime.today()
 yesterday = today - timedelta(days=1)
